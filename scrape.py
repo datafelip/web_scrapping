@@ -22,6 +22,7 @@ for title in titleElements:
     tmp = {}
     tmp["Titulo"] = title.get_attribute('title')
     title.click()
+    tmp["Valor"] = driver.find_element(By.CLASS_NAME, "price_color").text
     tmp["Estoque"] = int(driver.find_element(By.CLASS_NAME, 'instock').text.replace('In stock (', '').replace(' available)', ''))
     bookslist.append(tmp) 
     driver.back()
